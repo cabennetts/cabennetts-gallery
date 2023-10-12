@@ -4,29 +4,18 @@ export interface Album {
 }
 
 export const myAlbums: Album[] = [
-    {
-        name: "huntington beach",
-        tag: "huntington-beach",        
-    },
-    {
-        name: "tahoe",
-        tag: "tahoe",        
-    },
-    {
-        name: "hawaii",
-        tag: "hawaii",        
-    },
+    
     {
         name: "auto",
         tag: "auto",        
     },
     {
-        name: "san francisco",
-        tag: "san-francisco",        
+        name: "travel",
+        tag: "travel",        
     },
     {
-        name: "mexico",
-        tag: "mexico",        
+        name: "people",
+        tag: "people",        
     },
     {
         name: "pet",

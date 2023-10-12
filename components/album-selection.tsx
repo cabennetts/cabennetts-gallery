@@ -16,7 +16,7 @@ export default function AlbumSelection() {
             transition={{ duration: 3 }}
         >
             <ScrollArea className="w-screen ">
-                <div className="flex">
+                <div className="flex md:items-center md:justify-center md:pb-4">
                     {myAlbums.map((album, index) => (
                         <motion.div
                             key={index}
@@ -27,7 +27,7 @@ export default function AlbumSelection() {
                         >
                             <Button variant="ghost">
                                 <Link href={`/album/${album.tag}`}>
-                                    <p className="uppercase ">{album.name}</p>
+                                    <p className="uppercase md:text-xl ">{album.name}</p>
                                 </Link>
                             </Button>
                         </motion.div>

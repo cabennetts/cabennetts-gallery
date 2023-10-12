@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={barlow.className}>
+      <body className={`bg-black ${barlow.className}`}>
         <Navbar />
         {children}
       </body>

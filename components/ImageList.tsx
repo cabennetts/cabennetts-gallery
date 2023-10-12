@@ -19,7 +19,7 @@ export default function ImageList(images: ImageListProps) {
     console.log('imageList images',images.images)
     
     return (
-        <div className="flex flex-col space-y-4 pb-4 px-6">
+        <div className="grid auto-rows-auto items-center justify-center gap-4 md:grid-cols-2 p-4">
             { images.images.map((img: any, index: any) => (
                 <motion.div 
                     key={index}
@@ -30,8 +30,8 @@ export default function ImageList(images: ImageListProps) {
                 > 
                     <Image 
                         src={img.link}
-                        width={400}
-                        height={400}
+                        width={600}
+                        height={600}
                         alt="my image"
                     />
                     <motion.p

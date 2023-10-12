@@ -11,7 +11,7 @@ const Navbar: React.FC = () => {
     
     return (           
         <header className="w-full absolute z-10">
-            <nav className="w-full flex justify-between items-center md:items-center p-4 px-6 py-4 sm:px-16 md:px-24">         
+            <nav className="w-full flex justify-between items-center md:items-center p-4 px-6 py-4 sm:px-16 md:px-12">         
                 <div className="flex flex-row justify-between w-screen"> 
                     <motion.div 
                         className='self-center'
@@ -20,11 +20,16 @@ const Navbar: React.FC = () => {
                         transition={{ duration: 0.5 }}
                     >
                         <Link href="/" className="cursor-pointer">
-                            <h1 className='m-2 p-2 text-white'>cabennetts.gallery</h1>
+                            <h1 className='font-light tracking-wider text-white md:text-5xl lg:text-6xl'>cabennetts.gallery</h1>
                         </Link>
                     </motion.div>            
-                    <div className="hidden md:flex justify-end font-switzer font-medium uppercase">
-                        <ul className="flex flex-row gap-2 items-center ">
+                    <motion.div 
+                        className="hidden md:flex justify-end font-switzer font-medium uppercase text-white"
+                        initial={{ opacity: 0, x: '-75%' }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.75 }}
+                    >
+                        <ul className="flex flex-row gap-4 items-center text-3xl tracking-wide font-light lg:text-4xl">
                             <li>
                                 <Link href="/">about</Link>
                             </li>
@@ -32,7 +37,7 @@ const Navbar: React.FC = () => {
                                 <Link href="/">gear</Link>
                             </li>
                         </ul>
-                    </div>
+                    </motion.div>
                 </div>
 
                 <div className="flex relative">
