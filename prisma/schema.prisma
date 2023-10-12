@@ -1,0 +1,36 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider          = "postgresql"
+  url               = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl         = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+  shadowDatabaseUrl = env("POSTGRES_URL_NON_POOLING") // used for migrations
+}
+
+model Image {
+  id          String  @id @default(dbgenerated("concat('img_', replace(cast(gen_random_uuid() as text), '-', ''))")) @db.Text
+  title       String?
+  description String?
+  link        String?
+  tags        Tag[]
+  Album       Album?  @relation(fields: [albumId], references: [id])
+  albumId     String? @db.Text
+}
+
+model Tag {
+  id      String  @id @default(dbgenerated("concat('tag_', replace(cast(gen_random_uuid() as text), '-', ''))")) @db.Text
+  name    String @unique
+  Image   Image?  @relation(fields: [imageId], references: [id])
+  imageId String? @db.Text
+}
+
+model Album {
+  id     String  @id @default(dbgenerated("concat('abm_', replace(cast(gen_random_uuid() as text), '-', ''))")) @db.Text
+  name   String @unique
+  Images Image[]
+}
