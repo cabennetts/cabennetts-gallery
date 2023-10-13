@@ -1,12 +1,10 @@
-import AlbumSelection from "@/components/album-selection";
+import { Landing } from "@/components/Landing"
+
 
 export default async function Home() {
   return (
-    <main className="bg-black flex min-h-screen flex-col pt-24">
-      <AlbumSelection />
-      
-      <section className="flex flex-col gap-4 px-4">
-      </section>
+    <main className="bg-black text-white flex min-h-screen flex-col pt-24">          
+      <Landing /> 
     </main>
   )
 }

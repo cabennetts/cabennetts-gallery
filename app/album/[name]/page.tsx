@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { prisma } from "@/lib/prisma";
 import ImageList from "@/components/ImageList";
 import { NoPhotos } from "@/components/no-photos";
+import getBlur from "@/lib/getBlur";
 
 // export const revalidate = 86400
 export const revalidate = 0
@@ -66,6 +67,7 @@ export default async function Post({ params: { name } }: Props) {
     const data = await fetchData(name)
     console.log('data', data)
     if (!data) return notFound()
+    // const myBlurDataUrl = await getBlur()
 
     return (
         <main className="bg-black flex min-h-screen flex-col pt-24">
@@ -74,6 +76,7 @@ export default async function Post({ params: { name } }: Props) {
                     <NoPhotos />
                 ) : (
                     <ImageList images={data.Images}/>
+                    // <ImageList images={data.Images} blurDataUrl={myBlurDataUrl}/>
                 )}
                 
         </main>

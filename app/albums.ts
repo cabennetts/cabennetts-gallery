@@ -21,6 +21,14 @@ export const myAlbums: Album[] = [
         name: "pet",
         tag: "pet",        
     },
+    {
+        name: "architecture",
+        tag: "architecture",        
+    },
+    {
+        name: "lifestyle",
+        tag: "lifestyle",        
+    },
 ]
 
 export const madeForYouAlbums: Album[] = [

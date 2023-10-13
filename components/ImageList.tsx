@@ -1,7 +1,10 @@
 "use client";
 
+import * as React from "react"
+import { Progress } from "@/components/ui/progress"
 import { motion, scrollInfo } from "framer-motion";
 import Image from "next/image";
+import getBlur from "@/lib/getBlur";
 
 type ImageListProps = {
     images: {
@@ -13,13 +16,35 @@ type ImageListProps = {
             name: string;
         }[];
     }[];
+    // blurDataUrl: string
 };
+
+
+// export function ProgressDemo() {
+//   const [progress, setProgress] = React.useState(13)
+
+//   React.useEffect(() => {
+//     const timer = setTimeout(() => setProgress(66), 500)
+//     return () => clearTimeout(timer)
+//   }, [])
+
+//   return <Progress value={progress} className="w-[60%]" />
+// }
+
 
 export default function ImageList(images: ImageListProps) {
     
+
     const leftColumnItems = images.images.filter((_, index) => index % 2 === 0);
     const rightColumnItems = images.images.filter((_, index) => index % 2 !== 0);
-    
+
+    const [progress, setProgress] = React.useState(13)
+
+    React.useEffect(() => {
+        const timer = setTimeout(() => setProgress(66), 500)
+        return () => clearTimeout(timer)
+    }, [])
+
     return (
         <div className="p-4 items-center justify-center md:flex md:space-x-4">
             <div className="flex-1 flex flex-col md:space-y-4">
@@ -35,7 +60,7 @@ export default function ImageList(images: ImageListProps) {
                         src={img.link}
                         width={600}
                         height={600}
-                        alt={img.description}
+                        alt={img.description}            
                     />
                     <motion.p
                         className="text-white font-medium tracking-wider">
