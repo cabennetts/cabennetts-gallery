@@ -7,7 +7,7 @@ import { AiOutlineClose } from 'react-icons/ai'
 
 const Navbar: React.FC = () => {
     const [menuOpen, setMenuOpen] = useState(false);
-    const listItems = ['gallery', 'about', 'gear', 'contact', 'socials']
+    const listItems = ['about', 'gear', 'socials']
     
     return (           
         <header className="w-full absolute z-10">
@@ -62,7 +62,7 @@ const Navbar: React.FC = () => {
                             <div className=" py-2">
                                 <AiOutlineClose fontSize={28} onClick={() => setMenuOpen(false)} className="m-0"/>
                             </div>
-                            <ul className="text-end text-3xl">
+                            <ul className="text-end text-5xl uppercase">
                                 {listItems.map((item, index) => (
                                     <motion.li
                                         key={index}
@@ -70,9 +70,8 @@ const Navbar: React.FC = () => {
                                         animate={{ opacity: 1, x: 0 }}
                                         transition={{ delay: index * 0.15 }} // Adjust the delay as needed
                                     >
-                                        <button onClick={() => setMenuOpen(false)}>
-                                            <Link href={`/`}>{item}</Link>
-                                            {/* <Link href={`/${item}`}>{item}</Link> */}
+                                        <button onClick={() => setMenuOpen(false)}>                                    
+                                            <Link href={`/${item}`}>{item}</Link>
                                         </button>
                                     </motion.li>
                                 ))}                                 
